@@ -563,22 +563,28 @@
         <audio id="music" loop preload="none"><source src="invitation-music.mp3" type="audio/mpeg" /></audio>
         <script>
             const music = document.getElementById("music"),
-                btn = document.getElementById("musicBtn");
-            btn.onclick = async () => {
-                if (music.paused) {
-                    try {
-                        await music.play();
-                        btn.textContent = "🔊";
-                        btn.classList.add("playing");
-                    } catch (e) {
-                        alert("Add your music file at invitation-music.mp3");
-                    }
-                } else {
-                    music.pause();
-                    btn.textContent = "♫";
-                    btn.classList.remove("playing");
-                }
-            };
+      btn = document.getElementById("musicBtn");
+
+btn.onclick = async () => {
+    if (music.paused) {
+        try {
+            await music.play();
+            btn.textContent = "🔊";
+            btn.classList.add("playing");
+        } catch (e) {
+            alert("Add your music file at invitation-music.mp3");
+        }
+    } else {
+        music.pause();
+        btn.textContent = "♫";
+        btn.classList.remove("playing");
+    }
+};
+
+// Page load par button ka click trigger
+window.addEventListener("load", () => {
+    btn.click();
+});
 
             const target = new Date("2026-10-12T11:00:00+05:30").getTime();
             function tick() {
