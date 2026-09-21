@@ -567,13 +567,9 @@
 
 btn.onclick = async () => {
     if (music.paused) {
-        try {
-            await music.play();
+        await music.play();
             btn.textContent = "🔊";
             btn.classList.add("playing");
-        } catch (e) {
-            alert("Add your music file at invitation-music.mp3");
-        }
     } else {
         music.pause();
         btn.textContent = "♫";
